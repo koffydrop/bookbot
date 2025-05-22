@@ -7,9 +7,11 @@ if len(sys.argv) != 2:
 
 book_path = sys.argv[1]
 
+
 def get_book_text(path: str) -> str:
     with open(path) as f:
         return f.read()
+
 
 def main():
     text = get_book_text(book_path)
@@ -20,11 +22,10 @@ def main():
     for char_dict in sorted:
         if char_dict["char"].isalpha():
             filtered.append(char_dict)
-            
+
     formatted_char_count = []
     for it in filtered:
-        formatted_char_count.append(f"{it["char"]}: {it["num"]}")
-
+        formatted_char_count.append(f"{it['char']}: {it['num']}")
 
     output = f"""
 ============ BOOKBOT ============
@@ -34,9 +35,8 @@ Found {word_count} total words
 --------- Character Count -------
 {"\n".join(formatted_char_count)}
 ============= END ===============
-    """
+"""
     print(output)
-    
-    
+
 
 main()
